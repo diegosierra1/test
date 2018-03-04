@@ -117,4 +117,15 @@ $$.post('http://metricaurbana.com/conecta.php',{nuevos_formularios:'si',ultima_a
 }
 
 
-cargar_listado_formularios();
+
+function test(){
+	$$.post('http://metricaurbana.com/conecta.php',{prueba:'si',dato1:'hola',dato2:'xx'},function(data){
+//	
+myApp.alert(data);	
+var nuevos = data.split("|");
+	
+         });
+}
+
+test();
+//cargar_listado_formularios();
