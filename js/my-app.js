@@ -122,9 +122,9 @@ function test(){
 myApp.alert('A*');
 	
 
-	$$.post('http://metricaurbana.com/conecta',{prueba:'si',dato1:'hola',dato2:'xx'},function(data,status){
+	$$.post('http://metricaurbana.com/conecta',{prueba:'si',dato1:'hola',dato2:'xx'},function(data, status, xhr){
 //	
-myApp.alert('OK '+data+':'+status);	
+myApp.alert('OK '+data+':'+status+'>'+xhr);	
 //var nuevos = data.split("|");
 	
          },function(xhr, status){
