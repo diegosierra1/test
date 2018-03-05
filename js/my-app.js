@@ -39,7 +39,7 @@ myApp.alert('A*');
 	
 	
 	$$.ajax({
-	url: 'http://metricaurbana.com/conecta/',
+	url: 'http://metricaurbana.com/conecta.php',
         method: 'POST',
 	//dataType: 'json',
 	//contentType: 'application/json',
@@ -115,9 +115,9 @@ myApp.alert('A*');
 	
 //if(navigator.onLine){
 	
-	$$.post('http://metricaurbana.com/conecta.php',{prueba:'si',dato1:'hola',dato2:'xx'},function(data, status, xhr){
+	$$.post('http://metricaurbana.com/conecta/',{prueba:'si',dato1:'hola',dato2:'xx'},function(data, status, xhr){
 //	
-myApp.alert('OK '+data+':'+status+'>'+xhr);	
+myApp.alert('OK+ '+data+':'+status+'>'+xhr);	
 //var nuevos = data.split("|");
 	
          },function(xhr, status){
