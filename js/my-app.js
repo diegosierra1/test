@@ -37,8 +37,35 @@ comprobar_internet();
 function test(){
 myApp.alert('A*');
 	
-//if(navigator.onLine){
 	
+	$$.ajax({
+	url: 'http://metricaurbana.com/conecta.php',
+        method: 'POST',
+	//dataType: 'json',
+	//contentType: 'application/json',
+	data: {
+		prueba:'si',
+		dato1:'hola',
+		dato2:'xx',
+		user: 'usuario',
+		pass: '12345'
+	},
+	success: function(response){
+		//myApp.alert(JSON.stringify(response));
+		myApp.alert(response);
+	},
+	error: function(xhr, status){
+		//myApp.alert('Error: '+JSON.stringify(xhr));
+		//myApp.alert('ErrorStatus: '+JSON.stringify(status));
+		myApp.alert('Error: '+xhr);
+		myApp.alert('ErrorStatus: '+status);
+		
+	}
+});
+	
+	
+//if(navigator.onLine){
+	/*
 	$$.post('http://metricaurbana.com/conecta.php',{prueba:'si',dato1:'hola',dato2:'xx'},function(data, status, xhr){
 //	
 myApp.alert('OK '+data+':'+status+'>'+xhr);	
@@ -47,7 +74,7 @@ myApp.alert('OK '+data+':'+status+'>'+xhr);
          },function(xhr, status){
 	myApp.alert('Error '+xhr+':'+status);	
 	});
-	
+	*/
 
 	
 myApp.alert('B');	
