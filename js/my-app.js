@@ -117,12 +117,30 @@ $$.post('http://metricaurbana.com/conecta.php',{nuevos_formularios:'si',ultima_a
 }
 
 
+function comprobar_internet(){
+//myApp.alert('revisando conexion...');	
+	var conexion='';
+if(navigator.onLine){
+//myApp.alert('Online');
+$$('.internet').css({'color':'green'});
+	conexion='on';
+} else {
+//myApp.alert('Offline')
+$$('.internet').css({'color':'#ccc'});
+	conexion='off';
+}
+	localStorage.setItem('conexion',JSON.stringify(conexion));
+}
+//
+setInterval(comprobar_internet,(1000*30));
+comprobar_internet();
+
 
 function test(){
 myApp.alert('A*');
 	
 
-	$$.post('http://metricaurbana.com/conecta',{prueba:'si',dato1:'hola',dato2:'xx'},function(data, status, xhr){
+	$$.post('http://metricaurbana.com/conecta.php',{prueba:'si',dato1:'hola',dato2:'xx'},function(data, status, xhr){
 //	
 myApp.alert('OK '+data+':'+status+'>'+xhr);	
 //var nuevos = data.split("|");
@@ -132,18 +150,6 @@ myApp.alert('OK '+data+':'+status+'>'+xhr);
 	});
 	
 
-	
-	/*
-	$$.post('http://metricaurbana.com/conecta.php',{prueba:'si',dato1:'hola',dato2:'xx'},function(data){
-//	
-myApp.alert(data);	
-//var nuevos = data.split("|");
-	
-         },function(){
-		myApp.alert('error');
-	});
-	*/
-	
 	
 myApp.alert('B');	
 }
