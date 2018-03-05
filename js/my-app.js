@@ -119,7 +119,7 @@ $$.post('http://metricaurbana.com/conecta.php',{nuevos_formularios:'si',ultima_a
 
 
 function test(){
-myApp.alert('A');
+myApp.alert('A*');
 	
 
 	$$.post('http://metricaurbana.com/conecta',{prueba:'si',dato1:'hola',dato2:'xx'},function(data,status){
