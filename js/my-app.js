@@ -52,7 +52,7 @@ myApp.alert('A*');
 	},
 	success: function(response){
 		//myApp.alert(JSON.stringify(response));
-		myApp.alert(response);
+		myApp.alert('OK: '+response);
 	},
 	error: function(xhr, status){
 		//myApp.alert('Error: '+JSON.stringify(xhr));
@@ -82,5 +82,53 @@ myApp.alert('B');
 //
 }
 
-test();
+
+function test2(){
+myApp.alert('A*');
+	
+	
+	
+	
+//if(navigator.onLine){
+	
+	myApp.request.post('http://metricaurbana.com/conecta.php',{prueba:'si',dato1:'hola',dato2:'xx'},function(data, status, xhr){
+//	
+myApp.alert('OK '+data+':'+status+'>'+xhr);	
+//var nuevos = data.split("|");
+	
+         },function(xhr, status){
+	myApp.alert('Error '+xhr+':'+status);	
+	});
+	/**/
+
+	
+myApp.alert('B');	
+//}
+//
+}
+
+function test3(){
+myApp.alert('A*');
+	
+	
+	
+	
+//if(navigator.onLine){
+	
+	$$.post('http://metricaurbana.com/conecta.php',{prueba:'si',dato1:'hola',dato2:'xx'},function(data, status, xhr){
+//	
+myApp.alert('OK '+data+':'+status+'>'+xhr);	
+//var nuevos = data.split("|");
+	
+         },function(xhr, status){
+	myApp.alert('Error '+xhr+':'+status);	
+	});
+	/**/
+
+	
+myApp.alert('B');	
+//}
+//
+}
+//test();
 //cargar_listado_formularios();
