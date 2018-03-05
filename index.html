@@ -1,80 +1,169 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <!--
-        Customize this policy to fit your own app's needs. For more guidance, see:
-            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-        Some notes:
-            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-                * Enable inline JS: add 'unsafe-inline' to default-src
-        -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>DataCity</title>
 
-    <!-- Required meta tags-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
 
-    <!-- Your app title -->
-    <title>My App</title>
+<link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+<link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
 
-    <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
-        http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
-     -->
-
-    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
-    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
-
-    <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/font-awesome-4.3.0/css/font-awesome.min.css">
 </head>
-
 <body>
-    <!-- Status bar overlay for full screen mode (PhoneGap) -->
-    <div class="statusbar-overlay"></div>
+<input type="hidden" id="ingreso_abierto" value="no">
+<div class="statusbar-overlay"></div>
 
-    <!-- Panels overlay-->
-    <div class="panel-overlay"></div>
-    <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal">
-        <div class="content-block">
-            <p>Left panel content goes here</p>
-        </div>
-    </div>
+<div class="panel-overlay"></div>
 
-    <!-- Views -->
-    <div class="views">
-        <!-- Your main view, should have "view-main" class -->
-        <div class="view view-main">
-            <!-- Top Navbar-->
-            <div class="navbar">
-                <div class="navbar-inner">
-                    <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-                    <div class="center sliding">Awesome App</div>
-                    <div class="right">
-                        <!--
-                          Right link contains only icon - additional "icon-only" class
-                          Additional "open-panel" class tells app to open panel when we click on this link
-                        -->
-                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-            <div class="pages navbar-through toolbar-through">
-                <!-- Page, "data-page" contains page name -->
-                <div data-page="index" class="page">
-                    <!-- Scrollable page content -->
-                    
-                    
-                    <div class="page-content">
-                       
-                       
-                      
+
+<!-- panel izq menu-->
+<div class="panel panel-left panel-reveal">
+<div class="content-block">
+
+	<p>
+	<img src="imagenes/logDataCity90.png" width="90" height="70">
+	</p>
+		<!--
+     <p><a href="#programacion" id="boton_programacion"  class="tab-link close-panel"><h4><i class="fa fa-thumbs-o-up"></i> Mi Programación</h4></a></p>
+     -->
+      <p><a href="" id="boton-7" class="tab-link close-panel" onClick="cargar_listado_formularios();"><h4><i class="fa fa-download"></i> Descargar Formularios</h4></a></p>
+							<p><a href="#view-2" id="boton-2" class="tab-link close-panel"><h4><i class="fa fa-list"></i> Formularios</h4></a></p>
+                                                      
+							<p><a href="#view-4" id="boton-4"  class="tab-link close-panel"><h4><i class="fa fa-archive"></i> Encuestas Realizadas</h4></a></p>
+                           <p><a href="" id="boton-8"  class="tab-link close-panel" onClick="cargar_listado_programacion();"><h4><i class="fa fa-download"></i> Descargar Programación</h4></a></p>
+                            <p><a href="#view-6" id="boton-6"  class="tab-link close-panel" onClick="bd_listado_programacion('aeropuerto'); bd_listado_programacion('terminal')"><h4><i class="fa fa-calendar"></i> Programación Diaria</h4></a></p>
+
+                            <p><a href="" onClick="sincronizar();" class="tab-link close-panel"><h4><i class="fa fa-refresh"></i> Sincronización</h4></a></p>
+<p><a href="#view-7" id="boton-9" class="tab-link close-panel" data-view=".view-main"><h4><i class="fa fa-life-ring"></i> Ayuda</h4></a></p>
+                            <p><a href="#view-5" id="boton-5" class="tab-link close-panel" data-view=".view-main"><h4><i class="fa fa-info-circle"></i> Acerca de</h4></a></p>
+                            
+                            <p><a href="" onclick="salir();" class="tab-link close-panel"><h4><i class="fa fa-power-off"></i> Salir</h4></a></p>
+                            
+                            
+                            
+</div>
+</div>
+<!-- fin panel izq menu-->
+
+
+
+
+<!--Creamos el contenedor de vistas-->
+<div class="views tabs toolbar-through">
+
+
+
+<div id="view-1" class="view view-main tab active">
+
+<div class="navbar">
+<div class="navbar-inner">
+<div class="center sliding">Data City</div>
+</div>
+</div>
+
+<div class="pages navbar-through">
+
+
+<div data-page="index-1" class="page">
+
+<div class="page-content">
+<div align="center" id="zona_logo_home" style="margin-top: 30px;">
+                            <img src="imagenes/logDataCity180.png" width="180" height="140"> 
+                        </div>
+                        
+<div class="content-block-title">Bienvenido</div>
+<div class="content-block">
+<div class="content-block-inner">
+
+	<div class = "list-block">
+                        <ul>
+                          
+                          <li>
+                              <div class = "item-content">
+                                 <div class = "item-media"><i class = "icon icon-form-url"></i></div>
+                                 <div class = "item-inner">
+                                   <!--
+                                    <div class = "item-title label">Esta Estación</div>
+                                    -->
+                                    <div class = "item-input">
+                                       <input type = "number" id="estacion" placeholder = "Numero de Dispositivo">
+										<div id="texto_estacion"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+                           
+                           <li>
+                              <div class = "item-content">
+                                 <div class = "item-media"><i class = "icon icon-form-name"></i></div>
+                                 <div class = "item-inner">
+                                   <!--
+                                    <div class = "item-title label">Documento Usuario</div>
+                                    -->
+                                    <div class = "item-input">
+                                       <input type = "number" id="usuario" placeholder = "c.c. Usuario">
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+                           
+                          
+                           
+							   </ul>
+							   <br>
+							   
+							   
+							   <!--
+							   <button type="button" id="boton_ingresar" class="button color-green" onclick="db_ingresar();">Ingresar*</button>
+							   -->
+							   <input id="submmit-register" type="submit" value="ingresar" class="button button-big button-fill color-green">
+							   
+							   <a href="#formularios" id="inicio" class="oculto">Ir a formularios</a><br>
+							   
+							</div>
+							
+							
+</div>
+</div>
+
+
+
+</div>
+
+
+
+</div>
+</div>
+
+<!--aqui va el footer -->
+	
+</div>
+
+
+
+
+<div id="view-2" class="view tab">
+
+<div class="navbar">
+<div class="navbar-inner">
+<div class="center sliding">Formularios</div>
+
+<div class="right">
+<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+</div>
+</div>
+</div>
+
+
+<div class="pages navbar-through">
+<div data-page="index-2" class="page">
+<div class="page-content">
 <div class="content-block">
 
 	
@@ -107,36 +196,283 @@
                                   
   </p> 
   </div>
+</div>
 
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<div id="view-3" class="view tab">
+
+<div class="navbar">
+<div class="navbar-inner">
+<div class="center sliding">Encuesta - <span id="zona_id_formulario"></span></div>
+<div class="right">
+<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+</div>
+</div>
+</div>
+
+
+
+<div class="pages navbar-through">
+<div data-page="index-3" class="page">
+<div class="page-content">
+<div class="content-block-title" id="titulo_formulario"></div>
+<div class="content-block">
+
+                    <input type="hidden" name="formulario_cargado" id="formulario_cargado">
+                     <input type="hidden" name="encuesta_id" id="encuesta_id">
                        
-                       
-                        <div class="content-block">
-                            <p>Page content goes here</p>
-                            <!-- Link to another page -->
-                            <a href="about.html">About app</a> | <a href="#" onClick="test()">Test</a>
+                     <div id="zona_formulario" class="label-checkbox item-content"></div>
+                     <br><br>
+                        
+                     <input id="submit-encuesta" type="submit" value="Guardar Encuesta" class="button button-big button-fill color-green">
+                     
+                     <input type="hidden" id="planilla" value="">
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+
+
+<div id="view-4" class="view tab">
+<div class="navbar">
+<div class="navbar-inner">
+<div class="center sliding">Encuesta Realizadas</div>
+<div class="right">
+<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+</div>
+</div>
+</div>
+
+<div class="pages navbar-through">
+<div data-page="index-4" class="page">
+<div class="page-content">
+
+<div class="content-block">
+
+<table class="tabla_listado">
+               
+                <thead>
+                    <tr class="titulo_tabla">
+                        <th></th>
+                        <th>Formulario N.</th>
+                        <th>Usuario</th>
+                        <th>Fecha</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="elementsList_encuestas">
+                    <tr>
+                        <td colspan="5">cargando listado...</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+	
+	</div></div></div></div>
+	
+	                
+</div>
+
+
+
+	
+	
+<div id="view-5" class="view tab">
+<div class="navbar">
+<div class="navbar-inner">
+<div class="center sliding">Data City <span class="version"></span></div>
+<div class="right">
+<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+</div>
+</div>
+</div>
+
+<div class="pages navbar-through">
+<div data-page="index-5" class="page">
+<div class="page-content">
+
+
+   <div align="center" style="margin-top: 30px;">
+                            <img src="imagenes/logDataCity180.png">
                         </div>
-                        <span class="internet">Internet*</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Bottom Toolbar-->
-            <div class="toolbar">
-                <div class="toolbar-inner">
-                    <!-- Toolbar links -->
-                    <a href="#" class="link">Link 1</a>
-                    <a href="#" class="link">Link 2</a>
-                </div>
-            </div>
-        </div>
-        
-        
-        
-        
-    </div>
+                        
 
-    <script type="text/javascript" src="cordova.js"></script>
+<div class="content-block">
+<div class="content-block-inner" align="center">
+ <strong>Versión de la Apliacción: <span class="version"></span></strong><br><br>
+  Todos los Derechos Reservados Bureau De Bogotá 2017<br>
+    
+	
+	</div></div>
+	</div></div>
+	</div>
+	                
+</div>
+
+
+
+
+<div id="view-6" class="view tab">
+
+<div class="navbar">
+<div class="navbar-inner">
+<div class="center sliding">Programación</div>
+
+<div class="right">
+<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+</div>
+</div>
+</div>
+
+
+<div class="pages navbar-through">
+<div data-page="index-6" class="page">
+<div class="page-content">
+<div class="content-block">
+
+
+
+<p>
+						 
+	<div class="titulo_tabla">Programación Diaria para: <span class="usuario_doc"></span></div>                                        
+                                    
+                     <table cellpadding="2" cellspacing="0" class="tabla_listado">
+               
+                <thead>
+                   
+                </thead>
+                <tbody id="listado_programacion_aeropuerto">
+                    <tr>
+                        <td colspan="2">Cargando programacion aeropuerto...</td>
+                    </tr>
+                </tbody>
+            </table>
+                 <br><br>
+                                 <table cellpadding="2" cellspacing="0" class="tabla_listado">
+               
+                <thead>
+                   
+                </thead>
+                <tbody id="listado_programacion_terminal">
+                    <tr>
+                        <td colspan="2">Cargando programacion terminal...</td>
+                    </tr>
+                </tbody>
+            </table>
+                   
+                                  
+                    </p> 
+                    
+                    
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+
+<div id="view-7" class="view tab">
+
+<div class="navbar">
+<div class="navbar-inner">
+<div class="center sliding">Manual de Usuario</div>
+
+<div class="right">
+<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+</div>
+</div>
+</div>
+
+
+<div class="pages navbar-through">
+<div data-page="index-7" class="page">
+<div class="page-content">
+<div class="content-block">
+
+
+
+<p class="zona_ayuda">
+	<p>Descargue el APK desde: <br>
+	<!--
+		<a href="https://build.phonegap.com/apps/2532700/install/X6rmJZZaVBB_psakHb5v" target="_blank">Descargar</a>
+		-->
+		<img src="imagenes/chart.png">
+		<br>
+<br>
+Cuando hay actualizaciones disponibles de la aplicación al iniciar se da la opción de actualizar o hacer un Update 
+</p>					 
+	<div class="titulo_ayuda"> <i class="fa fa-download"></i> Descargar Formularios</div>                                        
+	<p>Si existe conexión a internet, se descargan los formularios Vigentes en su última versión</p>
+   
+    <div class="titulo_ayuda"> <i class="fa fa-list"></i> Formularios</div>                                        
+	<p>Listado de los formularios vigentes. Al hacer click en uno de ellos se carga el formulario completo para hacer la encuesta</p>                                                             
+                                                                 
+     <div class="titulo_ayuda"> <i class="fa fa-archive"></i> Encuestas Realizadas</div>                                        
+	<p>Listado de las encuestas realizadas y guardadas en el dispositivo, incluyendo la hora qen que se realizaron</p> 
+    
+     <div class="titulo_ayuda"> <i class="fa fa-download"></i> Descargar Programación</div>                                        
+	<p>Si existe conexión a internet, se descarga la programación para realizar encuestas en Aeropuerto o terminal de transporte que correspondan a su usuario. </p>                                                            
+                                                                                                                            
+      <div class="titulo_ayuda"> <i class="fa fa-calendar"></i> Programación Diaria</div>                                        
+	<p>Listado con la MI programación para encuestas de Aeropuerto y/o Terminal de transporte si corresponde. Al hacer click en la planilla que se carga el formulario que corresponda para realizar esa encuesta.</p>                                                                                                                                                                                
+    <div class="titulo_ayuda"> <i class="fa fa-refresh"></i> Sincronización</div>                                        
+	<p>Si existe conexión a internet, se envian las encuestas realizadas al servidor principal para ser procesadas, se muestra en pantalla un aviso de cuantas encuestas se revisaron</p> 
+                                                                  
+    <div class="titulo_ayuda"> <i class="fa fa-power-off"></i> Salir</div>                                        
+	<p>Se cierra la sesión de usuario y el sistema vuelve a pedir el documento de identificación del usuario para ingresar.</p> 
+                                
+
+                  </p> 
+                    
+                    
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+
+<!--
+<div class="toolbar tabbar tabbar-labels" >
+<div class="toolbar-inner"><a href="#view-2" class="tab-link active"> <i class="fa fa-list"></i><span class="tabbar-label">formularios</span></a><a href="#view-3" class="tab-link" ><i class="fa fa-calendar"></i><span class="tabbar-label">Reporte</span></a><a href="" class="tab-link" onClick="sincronizar();"> <i class="fa fa-refresh"></i><span class="tabbar-label">Sincronizar</span></a><a href="" class="tab-link" onclick="salir();"> <i class="fa fa-power-off"></i><span class="tabbar-label">Salir</span></a></div>
+</div>
+
+-->
+</div>
+
+	
+
+<script type="text/javascript" src="cordova.js"></script>
+    
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
-    <script type="text/javascript" src="js/my-app.js"></script>
+      
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
-
 </html>

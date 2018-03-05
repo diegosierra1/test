@@ -13,3 +13,17 @@
 .statusbar-overlay {
     background: #000000;
 }
+
+.tabla_listado{border: solid 1px #333;}
+.tabla_listado td{border-bottom: dotted 1px #333; border-right: dotted 1px #333;}
+.tabla_listado th{background: #333; color: #fff;}
+#zona_id_formulario{font-weight: bold}
+
+
+.linea_pregunta{background-color: #ccc; font-size: 20px; font-weight: bold; }
+.numero_pregunta{background-color: #f00; color: #fff; padding-left: 8px; padding-right: 8px;}
+#pagina_encuesta input[type=text]{background: #ccc; border: solid 1px #000; margin-bottom: 8px; width: 80%;}
+#pagina_encuesta input[type=radio]{height: 20px;}
+.subpreguntas{display: none}
+.presentacion, .gracias{background-color:cornsilk; font-size: 18px; padding: 8px;}
+.seccion{background-color: orange; font-size: 18px; text-align: center}
