@@ -122,7 +122,7 @@ function test(){
 myApp.alert('A');
 	
 
-	myApp.request.post('http://metricaurbana.com/conecta.php',{prueba:'si',dato1:'hola',dato2:'xx'},function(data,status){
+	$$.post('http://metricaurbana.com/conecta',{prueba:'si',dato1:'hola',dato2:'xx'},function(data,status){
 //	
 myApp.alert('OK '+data+':'+status);	
 //var nuevos = data.split("|");
@@ -131,6 +131,7 @@ myApp.alert('OK '+data+':'+status);
 	myApp.alert('Error '+xhr+':'+status);	
 	});
 	
+
 	
 	/*
 	$$.post('http://metricaurbana.com/conecta.php',{prueba:'si',dato1:'hola',dato2:'xx'},function(data){
