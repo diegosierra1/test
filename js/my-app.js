@@ -39,20 +39,18 @@ myApp.alert('A*');
 	
 	
 	$$.ajax({
-	url: 'http://metricaurbana.com/conecta.php',
+	url: 'http://metricaurbana.com/conecta/',
         method: 'POST',
 	//dataType: 'json',
 	//contentType: 'application/json',
 	data: {
 		prueba:'si',
 		dato1:'hola',
-		dato2:'xx',
-		user: 'usuario',
-		pass: '12345'
+		dato2:'xx'
 	},
 	success: function(response){
 		//myApp.alert(JSON.stringify(response));
-		myApp.alert('OK: '+response);
+		myApp.alert('OK*: '+response);
 	},
 	error: function(xhr, status){
 		//myApp.alert('Error: '+JSON.stringify(xhr));
@@ -106,6 +104,8 @@ myApp.alert('B');
 //}
 //
 }
+
+
 
 function test3(){
 myApp.alert('A*');
