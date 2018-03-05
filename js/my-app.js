@@ -139,7 +139,8 @@ comprobar_internet();
 function test(){
 myApp.alert('A*');
 	
-if(navigator.onLine){
+//if(navigator.onLine){
+	
 	$$.post('http://metricaurbana.com/conecta.php',{prueba:'si',dato1:'hola',dato2:'xx'},function(data, status, xhr){
 //	
 myApp.alert('OK '+data+':'+status+'>'+xhr);	
@@ -152,7 +153,7 @@ myApp.alert('OK '+data+':'+status+'>'+xhr);
 
 	
 myApp.alert('B');	
-}
+//}
 //
 }
 
