@@ -122,9 +122,11 @@ function test(){
 	$$.post('http://metricaurbana.com/conecta.php',{prueba:'si',dato1:'hola',dato2:'xx'},function(data){
 //	
 myApp.alert(data);	
-var nuevos = data.split("|");
+//var nuevos = data.split("|");
 	
-         });
+         },function(){
+		myApp.alert('error');
+	});
 }
 
 test();
